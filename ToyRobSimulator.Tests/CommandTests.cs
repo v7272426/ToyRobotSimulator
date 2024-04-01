@@ -141,7 +141,7 @@ namespace ToyRoboSimulator.Tests
             var report = robot.Report();
 
             // Assert
-            Assert.That(report, Is.EqualTo("2,3,WEST"));
+            Assert.That(report,Is.EqualTo("2,3,WEST"));
         }
 
         [Fact]

@@ -15,24 +15,28 @@ namespace ToyRoboSimulator
 
             string binFolderPath = AppDomain.CurrentDomain.BaseDirectory;
             string textFilePath = Path.Combine(binFolderPath, "commands.txt");
-
-            if (binFolderPath == null || binFolderPath.Length == 0)
+            try
             {
-                Console.WriteLine("Please specify a .txt filepath.");
-                return;
-            }
-            if (File.Exists(textFilePath) && (Path.GetExtension(textFilePath) == ".txt"))
-            {
-                string[] commands = File.ReadAllLines(textFilePath);
-                foreach (var command in commands)
+                if (binFolderPath == null || binFolderPath.Length == 0)
                 {
-                    //Executes the commands
-                    simulator.Execute(command);
-
+                    Console.WriteLine("Please specify a .txt filepath.");
+                    return;
                 }
-                Console.ReadLine();
+                if (File.Exists(textFilePath) && (Path.GetExtension(textFilePath) == ".txt"))
+                {
+                    string[] commands = File.ReadAllLines(textFilePath);
+                    foreach (var command in commands)
+                    {
+                        //Executes the commands
+                        simulator.Execute(command);
 
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }   
         }
     }
 }

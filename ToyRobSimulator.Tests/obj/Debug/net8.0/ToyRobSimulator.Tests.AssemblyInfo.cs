@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToyRobSimulator.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+249b53314a76d7f85c2cbacd8d0baeb031baf34c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+889376d6ee8d9e6cd0ab789111733b8f05ab4ec6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToyRobSimulator.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToyRobSimulator.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
