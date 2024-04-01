@@ -6,6 +6,7 @@ using Assert = NUnit.Framework.Assert;
 
 namespace ToyRoboSimulator.Tests
 {
+    
     public class CommandTests
     {
         [Fact]

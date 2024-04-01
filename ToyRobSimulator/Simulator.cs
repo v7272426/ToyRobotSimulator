@@ -24,10 +24,23 @@ namespace ToyRobSimulator
                 return;
             try
             {
-                if (command == "MOVE") _repository.Move();
-                if (command == "LEFT") _repository.Left();
-                if (command == "RIGHT") _repository.Right();
-                if (command == "REPORT") { Console.WriteLine(_repository.Report()); }
+                if (command == "MOVE")
+                {
+                    _repository.Move();
+                }
+                if (command == "LEFT")
+                {
+                    _repository.Left();
+                }
+                if (command == "RIGHT")
+                {
+                    _repository.Right();
+                }
+
+                if (command == "REPORT")
+                {
+                    Console.WriteLine(_repository.Report());
+                }
 
                 var match = _placeCommand.Match(command);
                 if (match.Success)
@@ -44,7 +57,6 @@ namespace ToyRobSimulator
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
-                // You can handle the exception further as needed
             }
         }
     }

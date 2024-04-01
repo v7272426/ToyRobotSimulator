@@ -7,7 +7,7 @@ using ToyRobSimulator.Interface;
 
 namespace ToyRobSimulator
 {
-    // Implement the repository
+    // Implement the Interface
     public class RobotCommand : IToyRobot
     {
         private readonly ToyRobot _toyRobot;

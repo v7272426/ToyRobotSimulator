@@ -10,15 +10,10 @@ namespace ToyRoboSimulator
         static void Main(string[] args)
         {
             // Automatically executes when application is started.
-
-            //var toyRobot = new ToyRobot();
-            //Simulator obj = new Simulator();
             // Create an instance of ToyRobot
-            ToyRobot Robot = new ToyRobot();
 
-            // Create an instance of ToyRobotRepository and pass the ToyRobot instance to it
+            ToyRobot Robot = new ToyRobot();
             RobotCommand toyRobot = new RobotCommand(Robot);
-            // Create an instance of Simulator and pass the ToyRobotRepository instance to it
             Simulator simulator = new Simulator(toyRobot);
 
             string binFolderPath = AppDomain.CurrentDomain.BaseDirectory;
