@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ToyRobSimulator.Interface
+﻿namespace ToyRobSimulator.Interface
 {
     // Define the interface for the repository
     public interface IToyRobot

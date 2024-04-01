@@ -1,12 +1,10 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using ToyRobSimulator;
-using ToyRobSimulator.Interface;
 using Assert = NUnit.Framework.Assert;
 
 namespace ToyRoboSimulator.Tests
 {
-    
+
     public class CommandTests
     {
         [Fact]
@@ -18,10 +16,10 @@ namespace ToyRoboSimulator.Tests
             Simulator simulator = new Simulator(toyRobot);
             simulator.Execute("PLACE 1,1,NORTH");
 
-            // Act
+            // Move forward Action
             simulator.Execute("MOVE");
 
-            // Assert
+            // Assert to check equal in North
             Assert.That(robot.Report(), Is.EqualTo("1,2,NORTH"));
         }
 
@@ -34,10 +32,10 @@ namespace ToyRoboSimulator.Tests
             Simulator simulator = new Simulator(toyRobot);
             simulator.Execute("PLACE 1,1,NORTH");
 
-            // Act
+            // Left rotate Action
             simulator.Execute("LEFT");
 
-            // Assert
+            // Assert to check equal in West
             Assert.That(robot.Report(), Is.EqualTo("1,1,WEST"));
         }
 
@@ -50,11 +48,11 @@ namespace ToyRoboSimulator.Tests
             Simulator simulator = new Simulator(toyRobot);
             simulator.Execute("PLACE 1,1,NORTH");
 
-            // Act
+            // Right rotate Action
             simulator.Execute("RIGHT");
 
-            // Assert
-            Assert.That(robot.Report(), Is.EqualTo("1,1,EAST"));
+            // Assert to check equal in East
+            Assert.That(robot.Report(),Is.EqualTo("1,1,EAST"));
 
 
         }
@@ -68,11 +66,11 @@ namespace ToyRoboSimulator.Tests
             Simulator simulator = new Simulator(toyRobot);
             simulator.Execute("PLACE 2,3,WEST");
 
-            // Act
+            // Report Action
             simulator.Execute("REPORT");
 
-            // Assert
-            Assert.That(robot.Report(), Is.EqualTo("2,3,WEST"));
+            // Assert to check equal in West
+            Assert.That(robot.Report(),Is.EqualTo("2,3,WEST"));
         }
 
         [Fact]
@@ -83,10 +81,10 @@ namespace ToyRoboSimulator.Tests
             RobotCommand toyRobot = new RobotCommand(robot);
             Simulator simulator = new Simulator(toyRobot);
 
-            // Act
+            // Action
             simulator.Execute("PLACE 6,6,NORTH");
 
-            // Assert
+            // Assert check is null when reported
             Assert.That(robot.Report(),Is.Null);
         }
 
@@ -97,11 +95,11 @@ namespace ToyRoboSimulator.Tests
             var robot = new ToyRobot();
             robot.Place(1, 1, Direction.North);
 
-            // Act
+            // Action Move direction
             robot.Move();
 
-            // Assert
-            Assert.That(robot.Report(), Is.EqualTo("1,2,NORTH"));
+            // Assert equals to report
+            Assert.That(robot.Report(),Is.EqualTo("1,2,NORTH"));
         }
 
         [Fact]
@@ -111,10 +109,10 @@ namespace ToyRoboSimulator.Tests
             var robot = new ToyRobot();
             robot.Place(1, 1, Direction.North);
 
-            // Act
+            // Action Left direction
             robot.Left();
 
-            // Assert
+            // Assert equal to West direction
             Assert.That(robot.Report(), Is.EqualTo("1,1,WEST"));
         }
 
@@ -125,10 +123,10 @@ namespace ToyRoboSimulator.Tests
             var robot = new ToyRobot();
             robot.Place(1, 1, Direction.North);
 
-            // Act
+            // Action right direction
             robot.Right();
 
-            // Assert
+            // Assert equal to East direction
             Assert.That(robot.Report(), Is.EqualTo("1,1,EAST"));
         }
 
@@ -162,7 +160,7 @@ namespace ToyRoboSimulator.Tests
         [Fact]
         public void Direction_IsValid_ReturnsTrueForValidDirection()
         {
-            // Act & Assert
+            // Action & Assert
             Assert.That(Direction.IsValid(Direction.North), Is.True);
             Assert.That(Direction.IsValid(Direction.East), Is.True);
             Assert.That(Direction.IsValid(Direction.South), Is.True);
@@ -172,14 +170,14 @@ namespace ToyRoboSimulator.Tests
         [Fact]
         public void Direction_IsValid_ReturnsFalseForInvalidDirection()
         {
-            // Act & Assert
+            // Action invalid direction & Assert
             Assert.That(Direction.IsValid("INVALID_DIRECTION"),Is.False);
         }
 
         [Fact]
         public void Direction_RotateLeft_ReturnsCorrectDirection()
         {
-            // Act & Assert
+            // Action direction & Assert left rotate
             Assert.That(Direction.RotateLeft(Direction.North), Is.EqualTo(Direction.West));
             Assert.That(Direction.RotateLeft(Direction.West), Is.EqualTo(Direction.South));
             Assert.That(Direction.RotateLeft(Direction.South), Is.EqualTo(Direction.East));
@@ -190,11 +188,11 @@ namespace ToyRoboSimulator.Tests
         [Fact]
         public void Direction_RotateRight_ReturnsCorrectDirection()
         {
-            // Act & Assert
-            Assert.That(Direction.RotateLeft(Direction.North), Is.EqualTo(Direction.West));
-            Assert.That(Direction.RotateLeft(Direction.West), Is.EqualTo(Direction.South));
-            Assert.That(Direction.RotateLeft(Direction.South), Is.EqualTo(Direction.East));
-            Assert.That(Direction.RotateLeft(Direction.East), Is.EqualTo(Direction.North));
+            // Action direction & Assert right rotate
+            Assert.That(Direction.RotateRight(Direction.North), Is.EqualTo(Direction.East));
+            Assert.That(Direction.RotateRight(Direction.East), Is.EqualTo(Direction.South));
+            Assert.That(Direction.RotateRight(Direction.South), Is.EqualTo(Direction.West));
+            Assert.That(Direction.RotateRight(Direction.West), Is.EqualTo(Direction.North));
         }
     }
 }

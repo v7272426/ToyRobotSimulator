@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using ToyRobSimulator;
+﻿using ToyRobSimulator;
 
 namespace ToyRoboSimulator
 {
